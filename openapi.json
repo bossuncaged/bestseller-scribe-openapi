@@ -5,16 +5,16 @@
     "version": "1.0.0",
     "description": "Live endpoints for generating book outlines and drafting chapters using OpenAI via Pabbly."
   },
-  "servers": [
-    {
-      "url": "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjZmNTUzMzUxMzci_pc"
-    }
-  ],
   "paths": {
     "/generate-outline": {
       "post": {
         "operationId": "generateOutline",
         "summary": "Generate a chapter-by-chapter outline",
+        "servers": [
+          {
+            "url": "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjZmNTUzMzUxMzci_pc"
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -56,6 +56,11 @@
       "post": {
         "operationId": "draftChapter",
         "summary": "Generate a first-draft chapter from a title and summary prompt",
+        "servers": [
+          {
+            "url": "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjY0NTUzNTUxMzIi_pc"
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
