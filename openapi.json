@@ -11,15 +11,10 @@
     }
   ],
   "paths": {
-    "/generate-outline": {
+    "/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjZmNTUzMzUxMzci_pc": {
       "post": {
         "operationId": "generateOutline",
         "summary": "Generate a chapter-by-chapter outline",
-        "servers": [
-          {
-            "url": "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjZmNTUzMzUxMzci_pc"
-          }
-        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -57,6 +52,42 @@
         }
       }
     },
-    "/draft-chapter": {
+    "/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjY0NTUzNTUxMzIi_pc": {
       "post": {
-        "operationId": "draftCha
+        "operationId": "draftChapter",
+        "summary": "Generate a first-draft chapter from a title and summary prompt",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chapter_title": {
+                    "type": "string"
+                  },
+                  "prompt": {
+                    "type": "string"
+                  }
+                },
+                "required": ["chapter_title", "prompt"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "First draft chapter content",
+            "content": {
+              "application/json": {
+                "example": {
+                  "chapter": "This chapter explores the myth of overnight success by dissecting common entrepreneurial narratives..."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
