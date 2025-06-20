@@ -3,7 +3,7 @@
   "info": {
     "title": "Bestseller Scribe Ai Pro API",
     "version": "1.0.0",
-    "description": "Live endpoint for generating book outlines using OpenAI via Pabbly."
+    "description": "Live endpoints for generating book outlines and drafting chapters using OpenAI via Pabbly."
   },
   "servers": [
     {
@@ -45,6 +45,43 @@
                     "Chapter 2: Building with Consistency",
                     "Chapter 3: Authority Through Storytelling"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/draft-chapter": {
+      "post": {
+        "operationId": "draftChapter",
+        "summary": "Generate a first-draft chapter from a title and summary prompt",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chapter_title": {
+                    "type": "string"
+                  },
+                  "prompt": {
+                    "type": "string"
+                  }
+                },
+                "required": ["chapter_title", "prompt"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "First draft chapter content",
+            "content": {
+              "application/json": {
+                "example": {
+                  "chapter": "This chapter explores the myth of overnight success by dissecting common entrepreneurial narratives..."
                 }
               }
             }
