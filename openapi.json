@@ -1,51 +1,37 @@
-{
-  "openapi": "3.1.0",
-  "info": {
-    "title": "Bestseller Scribe Ai Pro API",
-    "version": "1.0.0",
-    "description": "Live endpoint for generating book outlines using OpenAI via Pabbly."
-  },
-  "servers": [
-    {
-      "url": "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzMzA0MzA1MjZmNTUzMzUxMzci_pc"
-    }
-  ],
-  "paths": {
-    "/generate-outline": {
-      "post": {
-        "summary": "Generate a chapter-by-chapter outline",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "book_title": {
-                    "type": "string"
-                  },
-                  "topic": {
-                    "type": "string"
-                  }
-                },
-                "required": ["book_title", "topic"]
+"/generate-outline": {
+  "post": {
+    "operationId": "generateOutline",
+    "summary": "Generate a chapter-by-chapter outline",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "book_title": {
+                "type": "string"
+              },
+              "topic": {
+                "type": "string"
               }
-            }
+            },
+            "required": ["book_title", "topic"]
           }
-        },
-        "responses": {
-          "200": {
-            "description": "AI-generated outline",
-            "content": {
-              "application/json": {
-                "example": {
-                  "outline": [
-                    "Chapter 1: The Myth of Overnight Success",
-                    "Chapter 2: Building with Consistency",
-                    "Chapter 3: Authority Through Storytelling"
-                  ]
-                }
-              }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "AI-generated outline",
+        "content": {
+          "application/json": {
+            "example": {
+              "outline": [
+                "Chapter 1: The Myth of Overnight Success",
+                "Chapter 2: Building with Consistency",
+                "Chapter 3: Authority Through Storytelling"
+              ]
             }
           }
         }
